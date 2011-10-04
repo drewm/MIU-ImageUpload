@@ -1,6 +1,6 @@
 h1. Image/File Upload for MarkItUp!
 
-markItUp! (http://markitup.jaysalvat.com/) is a JavaScript plugin built on the jQuery library. It allows you to turn any textarea into a markup editor.
+"markItUp!":http://markitup.jaysalvat.com/ is a JavaScript plugin built on the jQuery library. It allows you to turn any textarea into a markup editor.
 
 This is a plugin for markItUp! to add the ability to browse for images and files to upload via ajax. A link to the file, or image tag is then returned to the editor.
 
