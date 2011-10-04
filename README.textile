@@ -1,0 +1,36 @@
+h1. Image/File Upload for MarkItUp!
+
+markItUp! (http://markitup.jaysalvat.com/) is a JavaScript plugin built on the jQuery library. It allows you to turn any textarea into a markup editor.
+
+This is a plugin for markItUp! to add the ability to browse for images and files to upload via ajax. A link to the file, or image tag is then returned to the editor.
+
+This plugin supports Textile, Markdown and HTML.
+
+h2. Origin
+
+This plugin was written for "Perch":http://grabaperch.com/ - a light weight PHP content management system. This is a simplified, standalone version of the plugin shipped by default with Perch.
+
+h2. Installation
+
+Copy the @image_upload@ folder into your @markitup@ folder.
+
+Use the following to add the button to your toolbar. You may wish to replace the default 'Pictures' button.
+
+bc. {name:'Picture', className:'image-upload', closeWith:function(markItUp){miu.ImageUpload.upload(markItUp,'textile');}}, 
+{name:'File', className:'file-upload', closeWith:function(markItUp){miu.ImageUpload.upload(markItUp,'textile',true);}},
+
+Replace @textile@ with @markdown@ or @html@ for your language of choice.
+
+h2. Upload Script
+
+The supplied @image_upload.php@ file performs an extremely basic file upload in PHP. Customise the paths at the start of the file to your system.
+
+h2. HTML Configuration
+
+The plugin looks for three HTML5 @data-@ attributes on your @textarea@ tag, and if present, passes them along to the upload script:
+
+* @data-width@
+* @data-height@
+* @data-crop@
+
+This can be used by the upload script for processing the image to match the context. This processing uses a Perch API, and so is not included with this version of the upload script. It could be easily implemented.
