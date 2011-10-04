@@ -1,11 +1,14 @@
 <?php
-    $file_path = '/path/to/image/folder'; // full filesystem path
-    $ = '/images'; // path from root of website
+    /* Customise the paths here: */
 
-    if (is_array($_FILES) && count($_FILES)) {
+    $file_path  = '/path/to/image/folder';  // full filesystem path
+    $web_path   = '/images';                // path from root of website
+
+
+    /* Supernoob-style PHP file upload begins here: */
     
+    if (is_array($_FILES) && count($_FILES)) {
         $image_folder_writable = is_writable($file_path);
-                
         foreach($_FILES as $file) {
             if ($image_folder_writable && (int) $file['size'] > 0 && $file['error']=='0') {
                 $filename = $file['name'];
@@ -15,15 +18,12 @@
                     $filename = time().'-'.$filename;
                     $target = $file_path.DIRECTORY_SEPARATOR.$filename;
                 }
-                                            
-                move_uploaded_file($file['tmp_name'], $target);
-    
-                echo $web_path.'/'.$filename;
-                exit;                
+                if (move_uploaded_file($file['tmp_name'], $target)) {
+                    echo $web_path.'/'.$filename;
+                    exit;
+                }
             }
         }
-
     }
-
     echo 'FAIL';
 ?>
