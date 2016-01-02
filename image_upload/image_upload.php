@@ -13,6 +13,7 @@
             if ($image_folder_writable && (int) $file['size'] > 0 && $file['error']=='0') {
                 $filename = $file['name'];
                 if (strpos($filename, '.php')!==false) $filename .= '.txt'; // diffuse PHP files
+                if (strpos($filename, '.phtml')!==false) $filename .= '.txt'; // diffuse PHP files
                 $target = $file_path.DIRECTORY_SEPARATOR.$filename;
                 if (file_exists($target)) {
                     $filename = time().'-'.$filename;
